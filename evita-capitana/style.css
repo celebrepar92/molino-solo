@@ -674,4 +674,8 @@ textarea{
   transform: translate(-50%, -50%);
 }
 
-
+@media only screen and (max-width: 1500px) {
+	.col-sm-6 {
+	  width: auto !important;
+	}
+}
