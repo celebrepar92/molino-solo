@@ -1,0 +1,666 @@
+<html>
+	<head>
+		<title>Molino</title>
+		<meta charset="utf-8">
+		<link href="style.css" type="text/css" rel="stylesheet">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+	
+		<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+		
+		<link rel="icon" type="image/x-icon" href="/favicon.png">
+		
+		<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+		
+		  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		  
+		  <script src="https://kit.fontawesome.com/24a376c310.js" crossorigin="anonymous"></script>
+		  
+		  <!--JavaScript-->
+			<script>
+				$(document).ready(function(){
+				$.ajax({
+				   type: 'GET',
+					url: 'https://misionesonline.net/feed/',
+					dataTyper: 'xml',
+					success: function(xml) {
+						var x=0;
+						$(xml).find('item').each(function(){
+							x++;                 
+							$('.id').append(
+								'<div class="item">' +
+									'<p class="title">' +
+										$(this).find('title').text() +
+									'</p>' +
+									'<a href="link' +
+										$(this).find('link').text() +
+										'">'
+								'</div>'
+							);                    
+						});
+						if(x==4){
+							return false;
+						}
+					}
+				});
+			});
+			
+			</script>
+		  
+	</head>
+	<body onload="showhide()">
+		
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-6">
+					<div id="prev"></div>
+					
+					<div id="imagen1">
+						<div class="fondoNegro">
+							<div class="fondoContainer">
+								<div id="rectNar"></div>
+								<div id="rectNar2">Tu rótulo</div>
+								<h1 id="titulo1">Tu título acá</h1>
+								
+								<span id="descripcion1">Tu descripción</span>
+							</div>
+							
+						</div>
+						
+						<div class="footer">
+							<!--<img src="molLogo1.png">-->
+						</div>
+						
+					</div>
+					
+					<div id="prev2"></div>
+					
+					<div id="imagen2">
+						<div class="alignContainer">
+							<div class="footer2">
+							<img src="molLogo2.png">
+						</div>
+						
+							<div class="gradient"></div>
+						
+							<div id="imagenPrin2"></div>
+							
+							
+							<div class="fondoContainer2">
+								<div class="gradient2"></div>
+								
+								<div class="cont2">
+								<div id="rectDeg"></div>
+								<div id="rectDeg2">Tu rótulo</div>
+								<h1 id="titulo2">Tu título acá</h1>
+								
+								<span id="descripcion2">Tu descripción</span>
+								</div>
+							</div>
+						
+						</div>
+						
+						
+					</div>
+					
+					<div id="prev3"></div>
+					<div id="imagen3">
+						<div class="fondoNegro2">
+							
+							<div class="fondoContainer3">
+							<img src="gradient.png" class="gradient3">
+							<div class="margin2"></div>
+							<div class="data3Margin"><div class="data3">
+								<label for="rotulo">
+									<div id="rectNar2img2">Tu rótulo</div>
+									</label>
+									<h1 id="titulo3">Tu título acá</h1>
+									
+									<span id="descripcion3">Tu descripción</span>
+								</div></div>
+							</div>
+							
+						</div>
+						
+						<div class="footer">
+							<img src="molbanner.png">
+						</div>
+						
+					</div>
+					
+					
+					<div id="prev4"></div>
+					<div id="imagen4">
+						<div class="fondoNegro4">
+							<div class="fondoContainer4">
+							<img src="gradient.png" class="gradient4">
+								<div class="videoTil" style="width: 100% !important;">
+								<label for="rotulo">
+								<div id="rectNarimg3"></div>
+								<div id="rectNar2img3">Tu rótulo</div>
+								</label>
+								<h1 id="titulo4" style="font-size:36px;width:100%;padding-left:70px;padding-right:70px;z-index:2;">Tu título acá</h1></div>
+							</div>
+							
+						</div>
+						
+						<div class="footerN4">
+							<img src="molbanner.png">
+						</div>
+						
+					</div>
+					
+					</div>
+			
+			
+			<div class="col-sm-6" >
+				<div class="config">
+					<header>
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-sm-7"><h1>Molino</h1></div>
+								<div class="col-sm-5">
+									<div id="limpiar" onclick="limpiar()"><i class="fa-solid fa-x"></i></div>
+									<!--<div id="cambiar" onclick="cambiar()"><i class="fa-solid fa-arrows-rotate"></i></div>
+									<div id="arriba" onclick="arriba()"><i class="fa-solid fa-chevron-up"></i></div>
+									<div id="abajo" onclick="abajo()"><i class="fa-solid fa-chevron-down"></i></div>-->
+								</div>
+							</div>
+						</div>
+					</header>
+					<h1>Configuración</h1>
+					
+					<form>
+					  <input type="text" id="titulo" name="titulo" placeholder="Título" value="Tu título acá"><br>
+					  <input type="text" id="imagen" name="imagen" placeholder="Enlace de imagen">
+					  <input type="text" id="rotuloInput" name="rotulo" placeholder="Rótulo" value="Tu rótulo">
+					  <textarea id="descripcionInput" name="descripcionInput">Tu descripción</textarea>
+					</form>
+					
+					<button id="Button2" onclick="cambTexto()">Previsualizar</button>
+					
+					<button id="Button1" onclick="showhide()">Cambiar plantilla</button>
+					
+					<button id="Button3">Guardar como...</button>
+					
+					<p>¿Content@ con el resultado? Hacé click derecho sobre la imagen y elegí "Guardar como..."</p>
+					
+					<div id="checks" style="font-family:'Raleway';text-transform:uppercase;font-size:15px !important;letter-spacing:1px;">
+						<input name="rotulo" id="rotulo" type="checkbox" class="css-checkbox" name="rotulo" value="Rotulo" onclick="mostrarRotulo()">
+						<label for="rotulo" style="margin-left: 30px;">Rótulo</label><br>
+						<input name="descripcion" id="descripcion" type="checkbox" class="css-checkbox" name="descripcion" value="Descripcion" onclick="mostrarDesc()">
+						<label for="descripcion" style="margin-left: 30px;margin-top:20px;">Descripción</label>
+					</div>
+					
+					<!--<h1>Últimas notas</h1>
+					
+					<div id="id"></div>-->
+        </button>
+				</div>
+			</div>
+			
+			</div>
+		</div>
+		
+		<script>
+
+			
+			function limpiar() {
+				document.getElementById("titulo").value = "Tu título acá";
+				document.getElementById("imagen").value = "Enlace de imagen";
+				document.getElementById("descripcionInput").value = "";
+				document.getElementById("rotuloInput").value = "";
+			}
+
+		var gener = 0;
+		
+		function showhide() {
+			
+			
+        if (document.getElementById('imagen1').style.display == 'block') {
+          document.getElementById('imagen1').style.display = 'none';
+          document.getElementById('imagen2').style.display = 'block';
+          document.getElementById('imagen3').style.display = 'none';
+          document.getElementById('imagen4').style.display = 'none';
+          document.getElementById('prev').style.display = 'none';
+          document.getElementById('prev2').style.display = 'block';
+          document.getElementById('prev3').style.display = 'none';
+          document.getElementById('prev4').style.display = 'none';
+          
+          if (document.getElementById("rotulo").checked == true){
+			  document.getElementById('rotuloInput').style.display = 'block';
+			}
+			
+			else{
+				document.getElementById('rotuloInput').style.display = 'none';
+			}
+			
+			if (document.getElementById("descripcion").checked == true){
+			  document.getElementById('descripcionInput').style.display = 'block';
+			}
+			
+			else{
+				document.getElementById('descripcionInput').style.display = 'none';
+			}
+          
+          var ProxEsTres = false;
+          
+          html2canvas(document.querySelector('#imagen2'), {scale: 2, useCORS: false, allowTaint: true}).then(function(canvas) {
+			canvas.id = "h2canvas";
+			
+			prev.appendChild(canvas);
+			
+			document.getElementById('prev2').innerHTML = ""; // <-- Clears the gif-btn div
+			document.getElementById('prev2').appendChild(canvas);
+          });
+         
+        }
+        
+        else if (document.getElementById('imagen2').style.display == 'block') {
+          document.getElementById('imagen1').style.display = 'none';
+          document.getElementById('imagen2').style.display = 'none';
+          document.getElementById('imagen3').style.display = 'block';
+          document.getElementById('imagen4').style.display = 'none';
+          document.getElementById('prev').style.display = 'none';
+          document.getElementById('prev2').style.display = 'none';
+          document.getElementById('prev3').style.display = 'block';
+          document.getElementById('prev4').style.display = 'none';
+          document.getElementById('checks').style.display = 'block';
+          
+          if (document.getElementById("rotulo").checked == true){
+			  document.getElementById('rotuloInput').style.display = 'block';
+			}
+			
+			else{
+				document.getElementById('rotuloInput').style.display = 'none';
+			}
+			
+			if (document.getElementById("descripcion").checked == true){
+			  document.getElementById('descripcionInput').style.display = 'block';
+			}
+			
+			else{
+				document.getElementById('descripcionInput').style.display = 'none';
+			}
+          
+          var ProxEsTres = false;
+          
+          document.querySelector('#button3').addEventListener('click', () => {html2canvas(document.querySelector('#imagen3'), {scale: 2, useCORS: false, allowTaint: true}).then(function(canvas) {
+			canvas.id = "h2canvas";
+			
+			prev.appendChild(canvas);
+			
+			document.getElementById('prev3').innerHTML = ""; // <-- Clears the gif-btn div
+			document.getElementById('prev3').appendChild(canvas);
+          })});
+         
+        }
+        
+        else if (document.getElementById('imagen3').style.display == 'block') {
+          document.getElementById('imagen1').style.display = 'none';
+          document.getElementById('imagen2').style.display = 'none';
+          document.getElementById('imagen3').style.display = 'none';
+          document.getElementById('imagen4').style.display = 'block';
+          document.getElementById('prev').style.display = 'none';
+          document.getElementById('prev2').style.display = 'none';
+          document.getElementById('prev3').style.display = 'none';
+          document.getElementById('prev4').style.display = 'block';
+          
+          document.getElementById('checks').style.display = 'none';
+          document.getElementById('rotuloInput').style.display = 'block';
+          document.getElementById('descripcionInput').style.display = 'none';
+          
+          document.getElementById("rotuloInput").style.display = 'block';
+          
+          html2canvas(document.querySelector('#imagen4'), {scale: 2, useCORS: false, allowTaint: true}).then(function(canvas) {
+			canvas.id = "h2canvas";
+			
+			prev.appendChild(canvas);
+			
+			document.getElementById('prev4').innerHTML = ""; // <-- Clears the gif-btn div
+			document.getElementById('prev4').appendChild(canvas);
+          });
+         
+        }
+        
+        
+        else {
+          document.getElementById('imagen1').style.display = 'block';
+          document.getElementById('imagen2').style.display = 'none';
+          document.getElementById('imagen3').style.display = 'none';
+          document.getElementById('imagen4').style.display = 'none';
+          document.getElementById('prev').style.display = 'block';
+          document.getElementById('prev2').style.display = 'none';
+          document.getElementById('prev3').style.display = 'none';
+          document.getElementById('prev4').style.display = 'none';
+          document.getElementById('checks').style.display = 'block';
+          
+          if (document.getElementById("rotulo").checked == true){
+			  document.getElementById('rotuloInput').style.display = 'block';
+			}
+			
+			else{
+				document.getElementById('rotuloInput').style.display = 'none';
+			}
+			
+			if (document.getElementById("descripcion").checked == true){
+			  document.getElementById('descripcionInput').style.display = 'block';
+			}
+			
+			else{
+				document.getElementById('descripcionInput').style.display = 'none';
+			}
+          
+          var ProxEsTres = false;
+          
+          html2canvas(document.querySelector('#imagen1'), {scale: 2, useCORS: false, allowTaint: true}).then(function(canvas) {
+			canvas.id = "h2canvas";
+			
+			prev.appendChild(canvas);
+			
+			document.getElementById('prev').innerHTML = ""; // <-- Clears the gif-btn div
+			document.getElementById('prev').appendChild(canvas);
+          });
+         
+        }
+        
+    }
+    
+    
+    function mostrarRotulo(){
+		
+		if (document.getElementById("rotulo").checked == true){
+			document.getElementById("rotuloInput").style.display = 'block';
+			
+			document.getElementById("rectNar").style.display = 'none';
+			document.getElementById("rectNar2").style.display = 'table';
+			
+			document.getElementById("rectNarimg2").style.display = 'none';
+			document.getElementById("rectNar2img2").style.display = 'table';
+			
+			document.getElementById("rectDeg").style.display = 'none';
+			document.getElementById("rectDeg2").style.display = 'table';
+			
+			html2canvas(document.querySelector('#imagen1'), {scale: 2, useCORS: false, allowTaint: true}).then(function(canvas) {
+			canvas.id = "h2canvas";
+			
+			prev.appendChild(canvas);
+			
+			document.getElementById('prev').innerHTML = ""; // <-- Clears the gif-btn div
+			document.getElementById('prev').appendChild(canvas);
+          });
+          
+          html2canvas(document.querySelector('#imagen2'), {scale: 2, useCORS: false, allowTaint: true}).then(function(canvas) {
+			canvas.id = "h2canvas";
+			
+			prev.appendChild(canvas);
+			
+			document.getElementById('prev2').innerHTML = ""; // <-- Clears the gif-btn div
+			document.getElementById('prev2').appendChild(canvas);
+          });
+          
+          html2canvas(document.querySelector('#imagen3'), {scale: 2, useCORS: false, allowTaint: true}).then(function(canvas) {
+			canvas.id = "h2canvas";
+			
+			prev.appendChild(canvas);
+			
+			document.getElementById('prev3').innerHTML = ""; // <-- Clears the gif-btn div
+			document.getElementById('prev3').appendChild(canvas);
+          });  
+		}
+		
+		else {
+			document.getElementById("rotuloInput").style.display = 'none';
+			
+			document.getElementById("rectNar").style.display = 'block';
+			document.getElementById("rectNar2").style.display = 'none';
+			
+			document.getElementById("rectNarimg2").style.display = 'block';
+			document.getElementById("rectNar2img2").style.display = 'none';
+			
+			document.getElementById("rectDeg").style.display = 'block';
+			document.getElementById("rectDeg2").style.display = 'none';
+			
+			html2canvas(document.querySelector('#imagen1'), {scale: 2, useCORS: false, allowTaint: true}).then(function(canvas) {
+			canvas.id = "h2canvas";
+			
+			prev.appendChild(canvas);
+			
+			document.getElementById('prev').innerHTML = ""; // <-- Clears the gif-btn div
+			document.getElementById('prev').appendChild(canvas);
+          });
+          
+          html2canvas(document.querySelector('#imagen2'), {scale: 2, useCORS: false, allowTaint: true}).then(function(canvas) {
+			canvas.id = "h2canvas";
+			
+			prev.appendChild(canvas);
+			
+			document.getElementById('prev2').innerHTML = ""; // <-- Clears the gif-btn div
+			document.getElementById('prev2').appendChild(canvas);
+          });
+          
+          html2canvas(document.querySelector('#imagen3'), {scale: 2, useCORS: false, allowTaint: true}).then(function(canvas) {
+			canvas.id = "h2canvas";
+			
+			prev.appendChild(canvas);
+			
+			document.getElementById('prev3').innerHTML = ""; // <-- Clears the gif-btn div
+			document.getElementById('prev3').appendChild(canvas);
+          });  
+		}
+	}
+	
+	
+	function mostrarDesc(){
+		
+		if (document.getElementById("descripcion").checked == true){
+			document.getElementById("descripcionInput").style.display = 'block';
+			
+			document.getElementById("titulo3").style.marginBottom = '0px !important';			
+			document.getElementById("descripcion3").style.display = 'block';
+			
+			document.getElementById("descripcion1").style.display = 'block';
+			document.getElementById("descripcion2").style.display = 'block';
+			
+			html2canvas(document.querySelector('#imagen1'), {scale: 2, useCORS: false, allowTaint: true}).then(function(canvas) {
+			canvas.id = "h2canvas";
+			
+			prev.appendChild(canvas);
+			
+			document.getElementById('prev').innerHTML = ""; // <-- Clears the gif-btn div
+			document.getElementById('prev').appendChild(canvas);
+          });
+          
+          html2canvas(document.querySelector('#imagen2'), {scale: 2, useCORS: false, allowTaint: true}).then(function(canvas) {
+			canvas.id = "h2canvas";
+			
+			prev.appendChild(canvas);
+			
+			document.getElementById('prev2').innerHTML = ""; // <-- Clears the gif-btn div
+			document.getElementById('prev2').appendChild(canvas);
+          });
+          
+          html2canvas(document.querySelector('#imagen3'), {scale: 2, useCORS: false, allowTaint: true}).then(function(canvas) {
+			canvas.id = "h2canvas";
+			
+			prev.appendChild(canvas);
+			
+			document.getElementById('prev3').innerHTML = ""; // <-- Clears the gif-btn div
+			document.getElementById('prev3').appendChild(canvas);
+          });  
+		}
+		
+		else {
+			document.getElementById("descripcionInput").style.display = 'none';
+			
+			document.getElementById("titulo3").style.marginBottom = '0px !important';			
+			document.getElementById("descripcion3").style.display = 'none';
+			
+			document.getElementById("descripcion1").style.display = 'none';
+			document.getElementById("descripcion2").style.display = 'none';
+			
+			html2canvas(document.querySelector('#imagen1'), {scale: 2, useCORS: false, allowTaint: true}).then(function(canvas) {
+			canvas.id = "h2canvas";
+			
+			prev.appendChild(canvas);
+			
+			document.getElementById('prev').innerHTML = ""; // <-- Clears the gif-btn div
+			document.getElementById('prev').appendChild(canvas);
+          });
+          
+          html2canvas(document.querySelector('#imagen2'), {scale: 2, useCORS: false, allowTaint: true}).then(function(canvas) {
+			canvas.id = "h2canvas";
+			
+			prev.appendChild(canvas);
+			
+			document.getElementById('prev2').innerHTML = ""; // <-- Clears the gif-btn div
+			document.getElementById('prev2').appendChild(canvas);
+          });
+          
+          html2canvas(document.querySelector('#imagen3'), {scale: 2, useCORS: false, allowTaint: true}).then(function(canvas) {
+			canvas.id = "h2canvas";
+			
+			prev.appendChild(canvas);
+			
+			document.getElementById('prev3').innerHTML = ""; // <-- Clears the gif-btn div
+			document.getElementById('prev3').appendChild(canvas);
+          });  
+		}
+	}
+	
+	function myRenderFunction(canvas){
+    var a = document.createElement('a');
+    // toDataURL defaults to png, so we need to request a jpeg, then convert for file download.
+    a.href = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
+    a.download = 'Molino.jpg';
+    a.click();
+}
+    
+		function cambTexto()
+		{
+			
+          var titulo = document.getElementById('titulo').value;
+          var imagen = document.getElementById('imagen').value;
+          var rotulo = document.getElementById('rotuloInput').value;
+          var descripcion = document.getElementById('descripcionInput').value;
+
+		  titulo = titulo.replace("_", "<span style='color:#FF7A00 !important;'>").replace("_", "</span>");
+          titulo = titulo.replace("'s", "’s");
+		  titulo = titulo.replace('"', '“').replace('"', '”');
+		  titulo = titulo.replace(":tanzania:", "<img src='https://em-content.zobj.net/source/facebook/305/flag-tanzania_1f1f9-1f1ff.png' style='width:37px;margin-top:-2px;display:inline-block;'/>");
+          
+          document.getElementById("titulo1").innerHTML = titulo;
+          document.getElementById("titulo2").innerHTML = titulo;
+          document.getElementById("titulo3").innerHTML = titulo;
+          document.getElementById("titulo4").innerHTML = titulo;
+          
+          document.getElementById("rectNar2").innerHTML = rotulo;
+          document.getElementById("rectNar2img2").innerHTML = rotulo;
+          document.getElementById("rectDeg2").innerHTML = rotulo;
+          document.getElementById("rectNar2img3").innerHTML = rotulo;
+          
+          document.getElementById("descripcion1").innerHTML = descripcion;
+          document.getElementById("descripcion2").innerHTML = descripcion;
+          document.getElementById("descripcion3").innerHTML = descripcion;
+          
+          document.getElementById("imagen1").style.backgroundImage = "url('"+imagen+"')";
+          document.getElementById("imagenPrin2").style.backgroundImage = "url('"+imagen+"')";
+          document.getElementById("imagen3").style.backgroundImage = "url('"+imagen+"')";
+          document.getElementById("imagen4").style.backgroundImage = "url('"+imagen+"')";
+          
+          
+          html2canvas(document.querySelector('#imagen1'), {scale: 2, useCORS: false, allowTaint: true}).then(function(canvas) {
+			canvas.id = "h2canvas";
+			
+			prev.appendChild(canvas);
+			
+			document.getElementById('prev').innerHTML = ""; // <-- Clears the gif-btn div
+			document.getElementById('prev').appendChild(canvas);
+
+			return false;
+          });
+          
+          html2canvas(document.querySelector('#imagen2'), {scale: 2, useCORS: false, allowTaint: true}).then(function(canvas) {
+			canvas.id = "h2canvas2";
+			
+			prev.appendChild(canvas);
+			
+			document.getElementById('prev2').innerHTML = ""; // <-- Clears the gif-btn div
+			document.getElementById('prev2').appendChild(canvas);
+
+			return false;
+          });
+          
+          html2canvas(document.querySelector('#imagen3'), {scale: 2, useCORS: false, allowTaint: true}).then(function(canvas) {
+			canvas.id = "h2canvas2";
+			
+			prev.appendChild(canvas);
+			
+			document.getElementById('prev3').innerHTML = ""; // <-- Clears the gif-btn div
+			document.getElementById('prev3').appendChild(canvas);
+
+			return false;
+          });
+          
+          html2canvas(document.querySelector('#imagen4'), {scale: 2, useCORS: false, allowTaint: true}).then(function(canvas) {
+			canvas.id = "h2canvas2";
+			
+			prev.appendChild(canvas);
+			
+			document.getElementById('prev4').innerHTML = ""; // <-- Clears the gif-btn div
+			document.getElementById('prev4').appendChild(canvas);
+
+			return false;
+          });
+        
+        }
+		
+const textInputs = document.querySelectorAll('input[type=text]')
+
+textInputs.forEach(function(input) {
+  input.addEventListener('change', function(e) {
+    if (e.target.value == '') {
+      e.target.value = "Tu título acá"
+    }
+  })
+})
+
+		
+function screenshot(){
+         html2canvas(document.querySelector('#imagen1'), {scale: 2, useCORS: true}).then(function(canvas) {
+			canvas.id = "h2canvas";
+            prev.appendChild(canvas);
+         });
+      }
+
+
+/*function capture() {
+    const captureElement = document.querySelector('#imagen1') // Select the element you want to capture. Select the <body> element to capture full page.
+    
+    
+    
+    html2canvas(captureElement, {useCORS: true, allowTaint: true, logging: false, foreignObjectRendering: true, height: 900, width: 900})
+        .then(canvas => {
+            canvas.style.display = 'none'
+            document.body.appendChild(canvas)
+            return canvas
+        })
+        .then(canvas => {
+	
+            const image = canvas.toDataURL('image/jpg')
+            const a = document.createElement('a')
+            a.setAttribute('download', 'my-image.jpg')
+            a.setAttribute('href', image)
+            a.click()
+            canvas.remove()
+        })
+}
+
+const btn = document.querySelector('#btn')
+btn.addEventListener('click', capture)*/
+
+
+		
+		</script>
+	</body>
+</html>
