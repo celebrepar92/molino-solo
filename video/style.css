@@ -1,0 +1,129 @@
+@import 'https://raw.githubusercontent.com/h-ibaldo/Raleway_Fixed_Numerals/master/css/rawline.css';
+
+@font-face {
+  font-family: 'Raleway';
+  src: local("rawline-800"), local("rawline-800"),
+      url("rawline-800.ttf");
+}
+
+@font-face {
+  font-family: 'RalewayBold';
+  src: local("rawline-bold"), local("rawline-bold"),
+      url("rawline-bold.ttf");
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    font-variant-numeric: lining-nums !important;
+    background-color: #f8f9fa;
+}
+
+#imagen4 {
+    width: 577.98px !important;
+    height: 900px !important;
+    background-color: #f5883d !important;
+    border: 20px solid white !important;
+    border-bottom: 0px solid white !important;
+    border-left: 0px !important;
+    border-right: 0px !important;
+    border-top: 0px !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+    background-size: cover !important;
+    margin-top: 10px;
+    margin-left: 10px;
+    z-index: 1;
+    background-position: center center;
+    text-align: center;
+}
+
+.fondoContainer4 {
+    height: 100% !important;
+    margin: auto !important;
+}
+
+.gradient4 {
+    position: absolute !important;
+    z-index: 1 !important;
+    margin-bottom: 0 !important;
+    margin-left: -289px !important;
+    width: 577.98px !important;
+    height: 900px !important;
+    bottom: 0 !important;
+}
+
+.videoTil {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#rectNar2img3 {
+    display: table;
+    position: relative;
+    margin: auto;
+    width: auto;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'RalewayBold';
+    font-size: 24px;
+    color: white;
+    padding: 3px;
+    padding-left: 8px;
+    padding-right: 8px;
+    background-color: #FF7A00 !important;
+    margin-top: 30px !important;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    z-index: 2 !important;
+}
+
+.fondoNegro4 {
+    width: 100% !important;
+    height: 900px !important;
+    background-color: black !important;
+    height: auto !important;
+    bottom: 70px !important;
+    background-color: rgba(0, 0, 0, 0.1) !important;
+    font-family: 'RalewayBold', sans-serif;
+    font-size: 26px;
+    color: white;
+}
+
+.fondoNegro4 h1 {
+    font-size: 26px;
+    text-align: center;
+}
+
+.fondoNegro:before {
+    content: '';
+    margin: -35px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    filter: blur(50px);
+    z-index: -1;
+}
+
+.footerN4 {
+    background-color: white !important;
+    width: 100% !important;
+    height: auto !important;
+    position: absolute !important;
+    bottom: 0 !important;
+}
+
+.footerN4 img {
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-top: 0px !important;
+    width: 578px !important;
+    position: absolute !important;
+    bottom: 0 !important;
+    z-index: 2;
+}
